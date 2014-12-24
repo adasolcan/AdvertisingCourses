@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :course_enrolments
+
+  resources :course_sessions
+
+  resources :courses
+
+  resources :course_types
+
   get 'static_pages/home'
   root :to => 'static_pages#home'
   devise_for :users
