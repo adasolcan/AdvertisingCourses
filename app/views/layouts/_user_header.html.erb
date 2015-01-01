@@ -1,6 +1,7 @@
 <ul class="nav nav-pills pull-right">
-  <% if user_signed_in? %>
-        <li><%= link_to "Delogare", destroy_user_session_path, :method => :delete %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.email, '#' %> </li>  
+      <li><%= link_to "Ieșire", destroy_user_session_path, :method => :delete %></li>
   <% else %>
         <li><%= link_to "Autentificare", new_user_session_path %></li>
   <% end %>

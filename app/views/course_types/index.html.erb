@@ -1,6 +1,6 @@
 <h1>Listing course_types</h1>
 
-<table>
+<table class="table table-striped" style="margin-top:10px; float:left;">
   <thead>
     <tr>
       <th>Name</th>
@@ -12,9 +12,9 @@
     <% @course_types.each do |course_type| %>
       <tr>
         <td><%= course_type.name %></td>
-        <td><%= link_to 'Show', course_type %></td>
-        <td><%= link_to 'Edit', edit_course_type_path(course_type) %></td>
-        <td><%= link_to 'Destroy', course_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalii', course_type, :class => 'btn btn-mini btn-info' %></td>
+        <td><%= link_to 'Editare', edit_course_type_path(course_type), :class => 'btn btn-mini btn-info' %></td>
+        <td><%= link_to 'Ștergere', course_type, method: :delete, data: { confirm: 'Ești sigur?' }, :class => 'btn btn-mini btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Course type', new_course_type_path %>
+<%= link_to 'Adaugare tip curs', new_course_type_path, :class => 'btn btn-info'%>
