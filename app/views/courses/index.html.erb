@@ -28,8 +28,7 @@
 
 <br>
 
-<% if user_signed_in? %>
-        <%= link_to 'Adaugare curs', new_course_path, :class => 'btn btn-info' %>
+<% if current_user and current_user.has_role? :admin%>
+    <%= link_to 'Adaugare curs', new_course_path, :class => 'btn btn-info' %>
 <% end %>
-
 
