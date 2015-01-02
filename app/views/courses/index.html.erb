@@ -28,4 +28,8 @@
 
 <br>
 
-<%= link_to 'Adaugare curs', new_course_path, :class => 'btn btn-info' %>
+<% if user_signed_in? %>
+        <%= link_to 'Adaugare curs', new_course_path, :class => 'btn btn-info' %>
+<% end %>
+
+
