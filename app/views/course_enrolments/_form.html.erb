@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :session_id %><br>
-    <%= f.number_field :session_id %>
+    <%= f.collection_select :session_id, CourseSession.order(:name),:id,:name, include_blank: true %>    
   </div>
   <div class="field">
     <%= f.label :status %> <br>
