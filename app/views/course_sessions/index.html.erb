@@ -24,7 +24,7 @@
         <% if current_user and current_user.has_role? :admin%>
           <td><%= link_to 'Editare', edit_course_session_path(course_session), :class => 'btn btn-mini btn-info' %></td>
           <td><%= link_to 'Ștergere', course_session, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-        <% end>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

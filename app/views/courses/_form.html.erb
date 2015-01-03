@@ -28,7 +28,7 @@
     <%= f.collection_select :master_course_id, Course.order(:title),:id,:title, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :id_tip_curs %><br>
+    <%= f.label :tip_curs %><br>
     <%= f.collection_select :course_type_id, CourseType.order(:name),:id,:name, include_blank: true %>
   </div>
   <div class="actions">
