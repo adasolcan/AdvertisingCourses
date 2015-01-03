@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   match 'cursuri', :to => 'courses#index', :via => :get
   match 'sesiuni_cursuri', :to => 'course_sessions#index', :via => :get
-  match 'inscrieri_cursuri', :to => 'course_enrolment#index', :via => :get
+  match 'inscrieri_cursuri', :to => 'course_enrolments#index', :via => :get
   match 'tipuri_cursuri', :to => 'course_types#index', :via => :get
 
   match 'course_enrolments/:user_id/show_by_user_id', to: 'course_enrolments#show_by_user_id', :via => :get, action: 'show_by_user_id'

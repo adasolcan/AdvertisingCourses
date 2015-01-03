@@ -42,6 +42,6 @@ class CourseSessionsController < ApplicationController
     end
 
     def course_session_params
-      params.require(:course_session).permit(:course_id, :instructor_id, :date_time, :place)
+      params.require(:course_session).permit(:name, :course_id, :instructor_id, :date_time, :place)
     end
 end

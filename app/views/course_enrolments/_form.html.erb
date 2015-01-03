@@ -13,11 +13,15 @@
 
   <div class="field">
     <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.collection_select :user_id, User.order(:email),:id,:email, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :session_id %><br>
     <%= f.number_field :session_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status %> <br>
+    <%= f.select :status, [["nou", "nou"], ["efectuat", "efectuat"]] %>
   </div>
   <div class="actions">
     <%= f.submit %>

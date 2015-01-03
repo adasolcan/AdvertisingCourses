@@ -1,12 +1,13 @@
-<h1>Listing course_sessions</h1>
+<h1>Sesiuni ale cursurilor</h1>
 
-<table>
+<table class="table table-striped" style="margin-top:10px; float:left;">
   <thead>
     <tr>
-      <th>Course</th>
-      <th>Instructor</th>
-      <th>Date time</th>
-      <th>Place</th>
+      <th>Denumire sesiune</th>
+      <th>Titlu curs</th>
+      <th>Email instructor</th>
+      <th>Data și ora</th>
+      <th>Locul</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,18 +15,22 @@
   <tbody>
     <% @course_sessions.each do |course_session| %>
       <tr>
-        <td><%= course_session.course_id %></td>
-        <td><%= course_session.instructor_id %></td>
+        <td><%= course_session.name %> </td>
+        <td><%= Course.find_by_id(course_session.course_id).title %></td>
+        <td><%= User.find_by_id(course_session.instructor_id).email %></td>
         <td><%= course_session.date_time %></td>
         <td><%= course_session.place %></td>
-        <td><%= link_to 'Show', course_session %></td>
-        <td><%= link_to 'Edit', edit_course_session_path(course_session) %></td>
-        <td><%= link_to 'Destroy', course_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalii', course_session, :class => 'btn btn-mini btn-info' %></td>
+        <% if current_user and current_user.has_role? :admin%>
+          <td><%= link_to 'Editare', edit_course_session_path(course_session), :class => 'btn btn-mini btn-info' %></td>
+          <td><%= link_to 'Ștergere', course_session, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+        <% end>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Course session', new_course_session_path %>
+<% if current_user and current_user.has_role? :admin%>
+  <%= link_to 'New Course session', new_course_session_path, :class => 'btn btn-info'  %>
+<% end %>

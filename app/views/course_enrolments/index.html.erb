@@ -1,11 +1,14 @@
-<h1>Listing course_enrolments</h1>
+<h1>Înscrieri cursuri</h1>
 
 <table class="table table-striped" style="margin-top:10px; float:left;">
   <thead>
     <tr>
         <th>Prenume</th>
         <th>Nume</th>
-        <th>Session</th>
+        <th>Denumire curs</th>
+        <th>Data si ora </th>
+        <th>Locul</th>
+        <th>Status</th>
         <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +18,14 @@
       <tr>
         <td> <%= User.find_by_id(course_enrolment.user_id).first_name %> </td>
         <td> <%= User.find_by_id(course_enrolment.user_id).last_name %></td>
-        <td><%= course_enrolment.session_id %></td>
-        <td><%= link_to 'Show', course_enrolment %></td>
-        <td><%= link_to 'Edit', edit_course_enrolment_path(course_enrolment) %></td>
-        <td><%= link_to 'Destroy', course_enrolment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= Course.find_by_id(CourseSession.find_by_id(course_enrolment.session_id).course_id).title %></td>
+        <td> <%= CourseSession.find_by_id(course_enrolment.session_id).date_time %> </td>
+        <td> <%= CourseSession.find_by_id(course_enrolment.session_id).place %> </td>
+        <td> <%= course_enrolment.status %> </td>
+        <% if current_user and current_user.has_role? :admin%>
+          <td><%= link_to 'Editare', edit_course_enrolment_path(course_enrolment), :class => 'btn btn-mini btn-info' %></td>
+          <td><%= link_to 'Ștergere', course_enrolment, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+        <% end %>   
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +33,6 @@
 
 <br>
 
-<%= link_to 'New Course enrolment', new_course_enrolment_path %>
+<% if current_user and current_user.has_role? :admin%>
+    <%= link_to 'Adaugă înscriere curs', new_course_enrolment_path, :class => 'btn btn-info' %>
+<% end %>

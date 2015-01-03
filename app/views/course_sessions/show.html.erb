@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Course:</strong>
+  <strong>Denumire sesiune:</strong>
+  <%= @course_session.name %>
+</p>
+
+<p>
+  <strong>Id curs:</strong>
   <%= @course_session.course_id %>
 </p>
 
 <p>
-  <strong>Instructor:</strong>
+  <strong>Id instructor:</strong>
   <%= @course_session.instructor_id %>
 </p>
 
 <p>
-  <strong>Date time:</strong>
+  <strong>Data și ora:</strong>
   <%= @course_session.date_time %>
 </p>
 
 <p>
-  <strong>Place:</strong>
+  <strong>Locul:</strong>
   <%= @course_session.place %>
 </p>
 
-<%= link_to 'Edit', edit_course_session_path(@course_session) %> |
-<%= link_to 'Back', course_sessions_path %>
+<%= link_to 'Editare', edit_course_session_path(@course_session) %> |
+<%= link_to 'Înapoi', course_sessions_path %>

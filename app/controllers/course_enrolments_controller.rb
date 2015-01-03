@@ -56,6 +56,6 @@ class CourseEnrolmentsController < ApplicationController
     end
 
     def course_enrolment_params
-      params.require(:course_enrolment).permit(:user_id, :session_id)
+      params.require(:course_enrolment).permit(:user_id, :session_id, :status)
     end
 end

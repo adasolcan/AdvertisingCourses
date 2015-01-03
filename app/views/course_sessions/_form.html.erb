@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :course_id %><br>
-    <%= f.number_field :course_id %>
+    <%= f.label :denumire_sesiune %><br> 
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :nume_curs %><br>
+    <%= f.collection_select :course_id, Course.order(:title),:id,:title, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :instructor_id %><br>

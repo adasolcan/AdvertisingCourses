@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Id utilizator:</strong>
   <%= @course_enrolment.user_id %>
 </p>
 
 <p>
-  <strong>Session:</strong>
+  <strong>Id sesiune curs:</strong>
   <%= @course_enrolment.session_id %>
 </p>
 
-<%= link_to 'Edit', edit_course_enrolment_path(@course_enrolment) %> |
-<%= link_to 'Back', course_enrolments_path %>
+<p>
+  <strong>Status:</strong>
+  <%= @course_enrolment.status %>
+</p>
+
+
+<%= link_to 'Editare', edit_course_enrolment_path(@course_enrolment) %> |
+<%= link_to 'Înapoi', course_enrolments_path %>
