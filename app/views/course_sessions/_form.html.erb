@@ -20,15 +20,15 @@
     <%= f.collection_select :course_id, Course.order(:title),:id,:title, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :instructor_id %><br>
-    <%= f.number_field :instructor_id %>
+    <%= f.label :email_instructor %><br>
+    <%= f.collection_select :instructor_id, User.order(:email),:id,:email, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :date_time %><br>
+    <%= f.label :data_si_ora %><br>
     <%= f.datetime_select :date_time %>
   </div>
   <div class="field">
-    <%= f.label :place %><br>
+    <%= f.label :locul %><br>
     <%= f.text_field :place %>
   </div>
   <div class="actions">
