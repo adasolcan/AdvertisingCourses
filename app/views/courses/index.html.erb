@@ -19,7 +19,7 @@
         <td><%= course.description %></td>
         <td><%= course.level %></td>
         <td><%= Course.find_by_id(course.master_course_id).title if course.master_course_id%></td>
-        <td><%= CourseType.find_by_id(course.course_type_id).name %></td>
+        <td><%= CourseType.find_by_id(course.course_type_id).name if course.course_type_id %></td>
         <% if current_user and current_user.has_role? :admin%>
           <td><%= link_to 'Editare', edit_course_path(course), :class => 'btn btn-mini btn-info' %></td>
           <td><%= link_to 'Ștergere', course, method: :delete, data: { confirm: 'Ești sigur?' }, :class => 'btn btn-mini btn-danger' %></td>
