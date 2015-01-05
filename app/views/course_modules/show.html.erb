@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Denumire:</strong>
+  <%= @course_module.name %>
+</p>
+
+<p>
+  <strong>Abreviere:</strong>
+  <%= @course_module.abreviation %>
+</p>
+
+<%= link_to 'Editare', edit_course_module_path(@course_module) %> |
+<%= link_to 'Înapoi', course_modules_path %>

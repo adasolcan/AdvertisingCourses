@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :course_modules
+
   resources :course_enrolments
 
   resources :course_sessions
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   root :to => 'static_pages#home'
   devise_for :users
 
+  match 'module', :to => 'course_modules#index', :via => :get
   match 'cursuri', :to => 'courses#index', :via => :get
   match 'sesiuni_cursuri', :to => 'course_sessions#index', :via => :get
   match 'inscrieri_cursuri', :to => 'course_enrolments#index', :via => :get

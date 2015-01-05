@@ -1,0 +1,29 @@
+<h1>Module</h1>
+
+<table class="table table-striped" style="margin-top:10px; float:left;">
+  <thead>
+    <tr>
+      <th>Denumire</th>
+      <th>Abreviere</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_modules.each do |course_module| %>
+      <tr>
+        <td><%= course_module.name %></td>
+        <td><%= course_module.abreviation %></td>
+        <% if current_user and current_user.has_role? :admin%>
+          <td><%= link_to 'Editare', edit_course_module_path(course_module), :class => 'btn btn-mini btn-info'  %></td>
+          <td><%= link_to 'Ștergere', course_module, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if current_user and current_user.has_role? :admin%>
+  <%= link_to 'Adăugare modul', new_course_module_path %>
+<% end %>
