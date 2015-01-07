@@ -20,7 +20,6 @@
         <td><%= User.find_by_id(course_session.instructor_id).email %></td>
         <td><%= course_session.date_time %></td>
         <td><%= course_session.place %></td>
-        <td><%= link_to 'Detalii', course_session, :class => 'btn btn-mini btn-info' %></td>
         <% if current_user and current_user.has_role? :admin%>
           <td><%= link_to 'Editare', edit_course_session_path(course_session), :class => 'btn btn-mini btn-info' %></td>
           <td><%= link_to 'Ștergere', course_session, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
