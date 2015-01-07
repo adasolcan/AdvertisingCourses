@@ -16,8 +16,8 @@
     <% @course_sessions.each do |course_session| %>
       <tr>
         <td><%= course_session.name %> </td>
-        <td><%= Course.find_by_id(course_session.course_id).title %></td>
-        <td><%= User.find_by_id(course_session.instructor_id).email %></td>
+        <td><%= Course.find_by_id(course_session.course_id).title if course_session.course_id%></td>
+        <td><%= User.find_by_id(course_session.instructor_id).email if course_session.instructor_id%></td>
         <td><%= course_session.date_time %></td>
         <td><%= course_session.place %></td>
         <% if current_user and current_user.has_role? :admin%>
