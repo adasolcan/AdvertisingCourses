@@ -16,11 +16,11 @@
   <tbody>
     <% @course_enrolments.each do |course_enrolment| %>
       <tr>
-        <td> <%= User.find_by_id(course_enrolment.user_id).first_name %> </td>
-        <td> <%= User.find_by_id(course_enrolment.user_id).last_name %></td>
-        <td> <%= Course.find_by_id(CourseSession.find_by_id(course_enrolment.session_id).course_id).title %></td>
-        <td> <%= CourseSession.find_by_id(course_enrolment.session_id).date_time %> </td>
-        <td> <%= CourseSession.find_by_id(course_enrolment.session_id).place %> </td>
+        <td> <%= User.find_by_id(course_enrolment.user_id).first_name if course_enrolment.user_id%> </td>
+        <td> <%= User.find_by_id(course_enrolment.user_id).last_name if course_enrolment.user_id%></td>
+        <td> <%= Course.find_by_id(CourseSession.find_by_id(course_enrolment.session_id).course_id).title if course_enrolment.session_id%></td>
+        <td> <%= CourseSession.find_by_id(course_enrolment.session_id).date_time if course_enrolment.session_id%> </td>
+        <td> <%= CourseSession.find_by_id(course_enrolment.session_id).place if course_enrolment.session_id%> </td>
         <td> <%= course_enrolment.status %> </td>
         <% if current_user and current_user.has_role? :admin%>
           <td><%= link_to 'Editare', edit_course_enrolment_path(course_enrolment), :class => 'btn btn-mini btn-info' %></td>
